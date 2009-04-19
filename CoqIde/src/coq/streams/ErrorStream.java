@@ -18,7 +18,7 @@ public class ErrorStream {
 		
 		try {
 			while (input.available()<=0){
-					System.out.println("Waiting for coqtop output");
+					//System.out.println("Waiting for coqtop output");
 					Thread.sleep(100);
 			}
 			bytes = new byte [input.available()];

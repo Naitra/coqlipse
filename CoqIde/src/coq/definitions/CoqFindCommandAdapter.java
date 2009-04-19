@@ -16,10 +16,21 @@ public class CoqFindCommandAdapter {
 	}
 	
 	public IRegion findTerm(int offset) throws BadLocationException{
+		System.out.println("findTerm");
 		IRegion next;
 		FindReplaceDocumentAdapter finder =
 			new FindReplaceDocumentAdapter(document);
 		return finder.find(offset, ".", true, true, false, false);
+	}
+	
+	public boolean inComment(String str){
+			System.out.println("STR:<"+str+">");
+		int cpt=0;
+		for (int i=0;i<str.length()-1;i++){
+			if (str.charAt(i)=='(' && str.charAt(i+1)=='*') cpt++;
+			else if (str.charAt(i)=='*' && str.charAt(i+1)==')')  cpt--;
+		}
+		return cpt>0;
 	}
 	
 	public IRegion getNextCommand(int offset) throws BadLocationException{
@@ -28,7 +39,8 @@ public class CoqFindCommandAdapter {
 		IRegion next = findTerm(offset);
 		if (next != null)
 			while ( (next.getOffset()+1<document.getLength())
-					&& (document.getChar(next.getOffset()+1)=='('))
+					&& ((document.getChar(next.getOffset()+1)=='(') 
+					|| inComment (document.get(offset, next.getOffset()+1-offset))))
 				next = findTerm(next.getOffset()+1);
 		return next;
 		

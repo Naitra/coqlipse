@@ -68,9 +68,11 @@ public class StepForward extends AbstractHandler{
 			// Length of next command
 			int nextCommandLength = 
 				nextCommandDelimiter.getOffset() - offset+1;
+			System.out.println("Command :<" + document.get(offset, nextCommandLength)+">");
 			// Extract command
 			String command = 
 				document.get(offset, nextCommandLength).trim();
+			assert	(command.charAt(command.length()-1)=='.');
 			// Send command to top level
 			CoqOutput output = coqtop.sendCommand(command);
 			// Create new state
