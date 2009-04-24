@@ -1,7 +1,8 @@
-package coq.views;
+package coq.views.outline;
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
+
 
 public class CoqContentProvider implements ITreeContentProvider{
 

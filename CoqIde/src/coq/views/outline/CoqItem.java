@@ -1,4 +1,4 @@
-package coq.views;
+package coq.views.outline;
 
 import java.util.LinkedList;
 

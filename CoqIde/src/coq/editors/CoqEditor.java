@@ -19,9 +19,9 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 import coq.definitions.ExtendedCoqState;
 import coq.plugin.CoqPlugin;
-import coq.toplevel.AbstractCoqTop;
-import coq.views.CoqContentOutlinePage;
-import coq.views.InfoView;
+import coq.toplevel.toplevel.*;
+import coq.views.debug.InfoView;
+import coq.views.outline.CoqContentOutlinePage;
 
 public class CoqEditor extends AbstractTextEditor{
 	

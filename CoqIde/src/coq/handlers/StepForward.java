@@ -18,9 +18,9 @@ import coq.definitions.CoqOutput;
 import coq.definitions.ExtendedCoqState;
 import coq.editors.CoqEditor;
 import coq.plugin.CoqPlugin;
-import coq.toplevel.AbstractCoqTop;
-import coq.views.CoqTopErrorView;
-import coq.views.CoqTopView;
+import coq.toplevel.toplevel.*;
+import coq.views.toplevel.*;
+import coq.views.toplevel.CoqTopView;
 
 
 public class StepForward extends AbstractHandler{
@@ -68,7 +68,7 @@ public class StepForward extends AbstractHandler{
 			// Length of next command
 			int nextCommandLength = 
 				nextCommandDelimiter.getOffset() - offset+1;
-			System.out.println("Command :<" + document.get(offset, nextCommandLength)+">");
+			//System.out.println("Command :<" + document.get(offset, nextCommandLength)+">");
 			// Extract command
 			String command = 
 				document.get(offset, nextCommandLength).trim();

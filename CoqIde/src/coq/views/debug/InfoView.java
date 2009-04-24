@@ -1,4 +1,4 @@
-package coq.views;
+package coq.views.debug;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;

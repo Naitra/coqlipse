@@ -1,14 +1,15 @@
-package coq.toplevel;
+package coq.toplevel.toplevel;
 
 import java.io.File;
 import java.io.IOException;
+
+import coq.definitions.CoqException;
 import coq.definitions.CoqOutput;
 import coq.definitions.CoqState;
-import coq.exceptions.CoqException;
 import coq.plugin.CoqPlugin;
-import coq.streams.ErrorStream;
-import coq.streams.CoqInputStream;
-import coq.streams.CoqOutputStream;
+import coq.toplevel.streams.CoqInputStream;
+import coq.toplevel.streams.CoqOutputStream;
+import coq.toplevel.streams.ErrorStream;
 
 
 

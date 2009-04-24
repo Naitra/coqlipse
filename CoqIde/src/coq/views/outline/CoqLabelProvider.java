@@ -1,10 +1,11 @@
-package coq.views;
+package coq.views.outline;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 
 import coq.plugin.CoqPluginImageRegistry;
+import coq.views.outline.CoqItem.Type;
 
 public class CoqLabelProvider implements ILabelProvider{
 

@@ -1,4 +1,4 @@
-package coq.views;
+package coq.views.toplevel;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.graphics.Color;

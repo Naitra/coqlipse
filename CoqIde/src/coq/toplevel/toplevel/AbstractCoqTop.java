@@ -1,10 +1,10 @@
-package coq.toplevel;
+package coq.toplevel.toplevel;
 
 import java.util.LinkedList;
 
+import coq.definitions.CoqException;
 import coq.definitions.CoqOutput;
 import coq.definitions.ExtendedCoqState;
-import coq.exceptions.CoqException;
 
 public class AbstractCoqTop {
 	

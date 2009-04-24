@@ -1,4 +1,4 @@
-package coq.exceptions;
+package coq.definitions;
 
 public class CoqException extends Exception {
 

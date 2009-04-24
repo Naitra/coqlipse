@@ -1,4 +1,4 @@
-package coq.views;
+package coq.views.outline;
 
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.FindReplaceDocumentAdapter;
@@ -14,6 +14,7 @@ import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 
 import coq.editors.CoqEditor;
 import coq.plugin.CoqPlugin;
+import coq.views.outline.CoqItem.Type;
 
 public class CoqContentOutlinePage extends ContentOutlinePage {
 	
@@ -31,7 +32,6 @@ public class CoqContentOutlinePage extends ContentOutlinePage {
 	
 	
 	public void refresh(){
-		TreeViewer viewer = this.getTreeViewer();
 		IDocument document = editor.getDocumentProvider().
 			getDocument(editor.getEditorInput());
 		
