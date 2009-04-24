@@ -2,7 +2,7 @@ package coq.views.outline;
 
 import java.util.LinkedList;
 
-public class CoqItem {
+public class OutlineItem {
 	public enum Type{
 		Dummy,
 		Axiom,
@@ -19,23 +19,23 @@ public class CoqItem {
 	public Type type;
 	int start, end;
 	
-	public CoqItem parent;
-	public LinkedList<CoqItem> children;
+	public OutlineItem parent;
+	public LinkedList<OutlineItem> children;
 	
-	public CoqItem(Type type, String name, int start, int end){
+	public OutlineItem(Type type, String name, int start, int end){
 		this.type = type;
 		this.name = name;
 		this.start = start;
 		this.end = end;
 		this.parent=null;
-		this.children = new LinkedList<CoqItem>();
+		this.children = new LinkedList<OutlineItem>();
 	}
 	
-	public void setParent(CoqItem parent){
+	public void setParent(OutlineItem parent){
 		this.parent=parent;
 	}
 	
-	public void addChil(CoqItem child){
+	public void addChil(OutlineItem child){
 		children.add(child);
 	}
 	

@@ -11,11 +11,10 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 
-import coq.definitions.CoqOutput;
 import coq.editors.CoqEditor;
 import coq.plugin.CoqPlugin;
+import coq.toplevel.toplevel.CoqOutput;
 import coq.views.toplevel.*;
-import coq.views.toplevel.CoqTopView;
 
 public class StepBackward extends AbstractHandler{ 
 

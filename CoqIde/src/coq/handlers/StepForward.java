@@ -13,14 +13,12 @@ import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IRegion;
 
 
-import coq.definitions.CoqFindCommandAdapter;
-import coq.definitions.CoqOutput;
 import coq.definitions.ExtendedCoqState;
+import coq.document.FindCommandAdapter;
 import coq.editors.CoqEditor;
 import coq.plugin.CoqPlugin;
 import coq.toplevel.toplevel.*;
 import coq.views.toplevel.*;
-import coq.views.toplevel.CoqTopView;
 
 
 public class StepForward extends AbstractHandler{
@@ -57,7 +55,7 @@ public class StepForward extends AbstractHandler{
 			int offset = coqtop.getCoqOffset();
 				
 			IRegion nextCommandDelimiter = 
-				(new CoqFindCommandAdapter(document)).getNextCommand(offset);
+				(new FindCommandAdapter(document)).getNextCommand(offset);
 
 			if (nextCommandDelimiter==null){
 				coqTopErrorView.setError("I can't see any command to proceed"); 

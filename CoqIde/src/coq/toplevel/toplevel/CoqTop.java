@@ -3,9 +3,6 @@ package coq.toplevel.toplevel;
 import java.io.File;
 import java.io.IOException;
 
-import coq.definitions.CoqException;
-import coq.definitions.CoqOutput;
-import coq.definitions.CoqState;
 import coq.plugin.CoqPlugin;
 import coq.toplevel.streams.CoqInputStream;
 import coq.toplevel.streams.CoqOutputStream;
@@ -34,7 +31,7 @@ public class CoqTop {
 	// Starts the top level
 	// Return the first output if succeed, null otherwise
 	
-	public CoqOutput start() throws CoqException{
+	public CoqOutput start(){
 		
 		if (new File(coqtop).exists())
 			CoqPlugin.logInfo("found (coqtop) : " + coqtop);	
@@ -59,7 +56,7 @@ public class CoqTop {
 		return new CoqOutput(coqError.read(),coqInput.read());
 	}
 	
-	public void restart() throws CoqException{
+	public void restart(){
 		if (running ()){
 			terminate();
 		}

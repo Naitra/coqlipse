@@ -9,16 +9,16 @@ import org.eclipse.jface.text.rules.DefaultDamagerRepairer;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.ui.editors.text.TextSourceViewerConfiguration;
 
-import coq.scanners.CoqCommentScanner;
-import coq.scanners.CoqPartitionScanner;
-import coq.scanners.CoqScanner;
+import coq.document.CommentScanner;
+import coq.document.PartitionScanner;
+import coq.document.Scanner;
 
 
 
 public class CoqTextSourceViewerConfiguration 
 	extends TextSourceViewerConfiguration{
 	
-	private CoqScanner coqscanner;
+	private Scanner coqscanner;
 	private CoqTextDoubleClickStrategy doubleClickStrategy;
 	
 	//public CoqTextSourceViewerConfiguration(){
@@ -29,7 +29,7 @@ public class CoqTextSourceViewerConfiguration
 	public String[] getConfiguredContentTypes(ISourceViewer sourceViewer) {
 		return new String[] {
 			IDocument.DEFAULT_CONTENT_TYPE,
-			CoqPartitionScanner.COQ_COMMENT};
+			PartitionScanner.COQ_COMMENT};
 	}
 	
 	@Override
@@ -42,9 +42,9 @@ public class CoqTextSourceViewerConfiguration
 		
 	}
 	
-	public CoqScanner getCoqScanner(){
+	public Scanner getCoqScanner(){
 		if (coqscanner==null){
-			coqscanner=new CoqScanner();
+			coqscanner=new Scanner();
 		}
 		return coqscanner;
 	}
@@ -80,9 +80,9 @@ public class CoqTextSourceViewerConfiguration
 
 		
 		DefaultDamagerRepairer dr2=
-			new DefaultDamagerRepairer(new CoqCommentScanner());
-		reconciler.setDamager(dr2, CoqPartitionScanner.COQ_COMMENT);
-		reconciler.setRepairer(dr2, CoqPartitionScanner.COQ_COMMENT);
+			new DefaultDamagerRepairer(new CommentScanner());
+		reconciler.setDamager(dr2, PartitionScanner.COQ_COMMENT);
+		reconciler.setRepairer(dr2, PartitionScanner.COQ_COMMENT);
 		
 		return reconciler;
 	}

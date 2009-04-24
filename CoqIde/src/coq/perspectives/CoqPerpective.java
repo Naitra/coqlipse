@@ -5,7 +5,7 @@ import org.eclipse.ui.IPerspectiveFactory;
 import org.eclipse.ui.console.IConsoleConstants;
 
 
-public class CoqPerpectiveFactory implements IPerspectiveFactory {
+public class CoqPerpective implements IPerspectiveFactory {
 
 	private static final String INFO_VIEW_ID = "InfoView";
 	private static final String TOPLEVEL_VIEW_ID = "CoqTopView";

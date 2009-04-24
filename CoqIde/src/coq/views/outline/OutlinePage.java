@@ -8,20 +8,17 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.model.WorkbenchContentProvider;
 import org.eclipse.ui.part.IPageSite;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 
 import coq.editors.CoqEditor;
-import coq.plugin.CoqPlugin;
-import coq.views.outline.CoqItem.Type;
 
-public class CoqContentOutlinePage extends ContentOutlinePage {
+public class OutlinePage extends ContentOutlinePage {
 	
 	CoqEditor editor;
-	CoqItem input;
+	OutlineItem input;
 	
-	public CoqContentOutlinePage(CoqEditor editor){
+	public OutlinePage(CoqEditor editor){
 		super();
 		this.editor = editor;
 	}
@@ -41,39 +38,39 @@ public class CoqContentOutlinePage extends ContentOutlinePage {
 			new FindReplaceDocumentAdapter(document);
 		IRegion region;
 		int position = 0;
-		input = new CoqItem(CoqItem.Type.Dummy,"Sum",0,0);
+		input = new OutlineItem(OutlineItem.Type.Dummy,"Sum",0,0);
 		try {
 			
 			while (position < document.getLength()){
 				region = fr.find(position, str, true, false, false, true);
 				if (region == null) break;
 				String str2 = document.get(region.getOffset(), region.getLength()).trim();
-				CoqItem.Type type = CoqItem.Type.Dummy; 
+				OutlineItem.Type type = OutlineItem.Type.Dummy; 
 				if (str2.startsWith("Lemma")){
-					type = CoqItem.Type.Lemma;
+					type = OutlineItem.Type.Lemma;
 					str2=str2.replaceFirst("Lemma", "");
 				}
 				else if (str2.startsWith("Axiom")){
-					type = CoqItem.Type.Axiom;
+					type = OutlineItem.Type.Axiom;
 					str2=str2.replaceFirst("Axiom", "");
 				}
 				else if (str2.startsWith("Definition")) {
-					type = CoqItem.Type.Definition;
+					type = OutlineItem.Type.Definition;
 					str2=str2.replaceFirst("Definition", "");
 				}
 				else if (str2.startsWith("Parameter")) {
-					type = CoqItem.Type.Parameter;
+					type = OutlineItem.Type.Parameter;
 					str2=str2.replaceFirst("Parameter", "");
 				}
 				else if (str2.startsWith("Theorem")) {
-					type = CoqItem.Type.Theorem;
+					type = OutlineItem.Type.Theorem;
 					str2=str2.replaceFirst("Theorem", "");
 				}
 				else if (str2.startsWith("Variable")) {
-					type = CoqItem.Type.Variable;
+					type = OutlineItem.Type.Variable;
 					str2=str2.replaceFirst("Variable", "");
 				}
-				CoqItem child = new CoqItem(type,str2,
+				OutlineItem child = new OutlineItem(type,str2,
 						region.getOffset(),region.getLength());
 				input.addChil(child);
 				position = region.getOffset()+region.getLength()+1;
@@ -89,8 +86,8 @@ public class CoqContentOutlinePage extends ContentOutlinePage {
 		super.createControl(parent);
 		System.out.println("create");	
 		TreeViewer viewer = this.getTreeViewer();
-		viewer.setContentProvider(new CoqContentProvider());
-		viewer.setLabelProvider(new CoqLabelProvider());
+		viewer.setContentProvider(new ContentProvider());
+		viewer.setLabelProvider(new LabelProvider());
 		this.refresh();
 		this.addSelectionChangedListener(this);
 		viewer.setInput(input);

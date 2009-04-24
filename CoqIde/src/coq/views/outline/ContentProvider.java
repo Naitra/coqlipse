@@ -4,12 +4,12 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
 
-public class CoqContentProvider implements ITreeContentProvider{
+public class ContentProvider implements ITreeContentProvider{
 
 	public Object[] getChildren(Object parentElement) {
 		// TODO Auto-generated method stub
-		if (parentElement instanceof CoqItem)
-			return ((CoqItem) parentElement).getChildren();
+		if (parentElement instanceof OutlineItem)
+			return ((OutlineItem) parentElement).getChildren();
 			//System.out.println("provider getChildren");
 		return null;
 	}
@@ -17,16 +17,16 @@ public class CoqContentProvider implements ITreeContentProvider{
 	public Object getParent(Object element) {
 		// TODO Auto-generated method stub
 		//System.out.println("provider getParent");
-		if (element instanceof CoqItem)
-			return ((CoqItem) element).getParent();
+		if (element instanceof OutlineItem)
+			return ((OutlineItem) element).getParent();
 		return null;
 	}
 
 	public boolean hasChildren(Object element) {
 		//System.out.println("provider hasChildren");
 		// TODO Auto-generated method stub
-		if (element instanceof CoqItem)
-			return ((CoqItem) element).hasChildren();
+		if (element instanceof OutlineItem)
+			return ((OutlineItem) element).hasChildren();
 		
 		return false;
 	}
@@ -34,8 +34,8 @@ public class CoqContentProvider implements ITreeContentProvider{
 	public Object[] getElements(Object inputElement) {
 		// TODO Auto-generated method stub
 		//System.out.println("provider getElements");
-		if (inputElement instanceof CoqItem)
-			return ((CoqItem) inputElement).getChildren();
+		if (inputElement instanceof OutlineItem)
+			return ((OutlineItem) inputElement).getChildren();
 		return new Object[]{inputElement};
 	}
 

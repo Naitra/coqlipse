@@ -1,22 +1,22 @@
-package coq.scanners;
+package coq.document;
 
 import org.eclipse.jface.text.rules.IRule;
 import org.eclipse.jface.text.rules.MultiLineRule;
 import org.eclipse.jface.text.rules.RuleBasedScanner;
 import org.eclipse.jface.text.rules.WordRule;
 
-import coq.definitions.CoqToken;
+import coq.definitions.Constants;;
 
 
 
-public class CoqCommentScanner extends RuleBasedScanner {
+public class CommentScanner extends RuleBasedScanner {
 	
-	public CoqCommentScanner(){
+	public CommentScanner(){
 		
-		WordRule rule = new WordRule(new CoqCommentDetector(), 
-			CoqToken.comment);
+		WordRule rule = new WordRule(new CommentDetector(), 
+			Constants.comment);
 		MultiLineRule rule2 = 
-			new MultiLineRule("(*","*)",CoqToken.comment);
+			new MultiLineRule("(*","*)",Constants.comment);
 		IRule[] frules = new IRule[] {rule,rule2};
 		setRules(frules);
 	}

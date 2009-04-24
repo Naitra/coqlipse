@@ -1,4 +1,4 @@
-package coq.definitions;
+package coq.toplevel.toplevel;
 
 public class CoqState {
 	

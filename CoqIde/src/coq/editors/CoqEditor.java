@@ -21,11 +21,11 @@ import coq.definitions.ExtendedCoqState;
 import coq.plugin.CoqPlugin;
 import coq.toplevel.toplevel.*;
 import coq.views.debug.InfoView;
-import coq.views.outline.CoqContentOutlinePage;
+import coq.views.outline.OutlinePage;
 
 public class CoqEditor extends AbstractTextEditor{
 	
-	CoqContentOutlinePage coqContentOutlinePage;
+	OutlinePage coqContentOutlinePage;
 	
 	CoqDocumentProvider documentProvider;
 	private AbstractCoqTop abstractCoqTop;
@@ -44,7 +44,7 @@ public class CoqEditor extends AbstractTextEditor{
 	public Object getAdapter(Class required){
 		if (IContentOutlinePage.class.equals(required)){
 			if (coqContentOutlinePage == null){
-				coqContentOutlinePage = new CoqContentOutlinePage(this);
+				coqContentOutlinePage = new OutlinePage(this);
 			}
 			return coqContentOutlinePage;
 		}

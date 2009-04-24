@@ -2,7 +2,7 @@ package coq.toplevel.streams;
 import java.io.IOException;
 import java.io.InputStream;
 
-import coq.definitions.CoqState;
+import coq.toplevel.toplevel.CoqState;
 
 
 

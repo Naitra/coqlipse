@@ -5,7 +5,7 @@ import org.eclipse.jface.text.IDocumentPartitioner;
 import org.eclipse.jface.text.rules.FastPartitioner;
 import org.eclipse.ui.editors.text.FileDocumentProvider;
 
-import coq.scanners.CoqPartitionScanner;
+import coq.document.PartitionScanner;
 
 public class CoqDocumentProvider extends FileDocumentProvider{
 
@@ -15,13 +15,14 @@ public class CoqDocumentProvider extends FileDocumentProvider{
 		if (document != null) {
 			IDocumentPartitioner partitioner =
 				new FastPartitioner(
-					new CoqPartitionScanner(),
+					new PartitionScanner(),
 					new String[] {
-						CoqPartitionScanner.COQ_COMMENT});
+						PartitionScanner.COQ_COMMENT});
 			partitioner.connect(document);
 			document.setDocumentPartitioner(partitioner);
 		}
 		document.addDocumentListener(new CoqDocumentListener());
+		
 		return document;
 	}
 }

@@ -1,5 +1,7 @@
 package coq.definitions;
 
+import coq.toplevel.toplevel.CoqState;
+
 
 public class ExtendedCoqState{
 	public int offset;

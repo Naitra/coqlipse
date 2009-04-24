@@ -1,6 +1,31 @@
 package coq.definitions;
+import org.eclipse.jface.text.TextAttribute;
+import org.eclipse.jface.text.rules.Token;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
 
-public interface CoqItem {
+
+public interface Constants {
+	
+	public static final Color COLOR_THEOREM =
+		new Color(Display.getCurrent(),255,200,0);
+	
+	public static final Color COLOR_TACTIC =
+		new Color(Display.getCurrent(),0,0,128);
+	
+	public static final Color COLOR_TYPE =
+		new Color(Display.getCurrent(),0,128,0);
+	
+	public static final Color COLOR_KEYWORD =
+		new Color(Display.getCurrent(),0,0,128);
+	
+	public static final Color COLOR_COMMENT =
+		new Color(Display.getCurrent(),0,128,0);
+	
+	public static final Color COLOR_OTHER =
+		new Color(Display.getCurrent(),0,0,0);
+	
 
 	public static final String[] DECLARATION_KEYWORD = new String[]{
 		"Axiom", "Conjecture",
@@ -67,5 +92,36 @@ public interface CoqItem {
 		"try", "discriminate","auto","inversion","eauto",
 		"left","right","fail","constructor","split",
 	};
+	
+	
+
+	public static final String COQ_MAKE_ACTION = "coq_make_action";
+	public static final String COQ_CLEAN_ACTION = "coq_clean_action";
+	public static final String COQ_DOC_ACTION = "coq_doc_action"; 
+	
+	
+	public static final Token theorem = 
+		new Token(new TextAttribute(
+				Constants.COLOR_THEOREM,null,SWT.BOLD));
+	
+	public static final Token tactic = 
+		new Token(new TextAttribute(
+				Constants.COLOR_TACTIC,null,SWT.BOLD));
+	
+	public static final Token type = 
+		new Token(new TextAttribute(
+				Constants.COLOR_TYPE,null,SWT.BOLD));
+	
+	public static final Token keyword = 
+		new Token(new TextAttribute(
+				Constants.COLOR_KEYWORD,null,SWT.BOLD));
+	
+	public static final Token comment 
+		= new Token(new TextAttribute(
+				Constants.COLOR_COMMENT,null,SWT.BOLD));
+	
+	public static final Token other 
+		= new Token(new TextAttribute(
+				Constants.COLOR_OTHER,null,SWT.BOLD));
 	
 }

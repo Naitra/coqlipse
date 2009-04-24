@@ -1,13 +1,11 @@
 package coq.views.outline;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 
 import coq.plugin.CoqPluginImageRegistry;
-import coq.views.outline.CoqItem.Type;
 
-public class CoqLabelProvider implements ILabelProvider{
+public class LabelProvider implements ILabelProvider{
 
 	public Image getImage(Object element) {
 		// TODO Auto-generated method stub
@@ -15,23 +13,23 @@ public class CoqLabelProvider implements ILabelProvider{
 		//Image image = new Image(null, null);
 		//Image image = ImageDescriptor.getMissingImageDescriptor()
 		Image image=null;
-		if (element instanceof CoqItem){
-			if (((CoqItem) element).type == CoqItem.Type.Lemma)
+		if (element instanceof OutlineItem){
+			if (((OutlineItem) element).type == OutlineItem.Type.Lemma)
 				image = CoqPluginImageRegistry.
 					getImage(CoqPluginImageRegistry.COQ_LEMMA);
-			if (((CoqItem) element).type == CoqItem.Type.Axiom)
+			if (((OutlineItem) element).type == OutlineItem.Type.Axiom)
 				image = CoqPluginImageRegistry.
 					getImage(CoqPluginImageRegistry.COQ_AXIOM);
-			if (((CoqItem) element).type == CoqItem.Type.Definition)
+			if (((OutlineItem) element).type == OutlineItem.Type.Definition)
 				image = CoqPluginImageRegistry.
 					getImage(CoqPluginImageRegistry.COQ_DEFINITION);
-			if (((CoqItem) element).type == CoqItem.Type.Parameter)
+			if (((OutlineItem) element).type == OutlineItem.Type.Parameter)
 				image = CoqPluginImageRegistry.
 					getImage(CoqPluginImageRegistry.COQ_PARAMETER);
-			if (((CoqItem) element).type == CoqItem.Type.Theorem)
+			if (((OutlineItem) element).type == OutlineItem.Type.Theorem)
 				image = CoqPluginImageRegistry.
 					getImage(CoqPluginImageRegistry.COQ_THEOREM);
-			if (((CoqItem) element).type == CoqItem.Type.Variable)
+			if (((OutlineItem) element).type == OutlineItem.Type.Variable)
 				image = CoqPluginImageRegistry.
 					getImage(CoqPluginImageRegistry.COQ_VARIABLE);
 		}
@@ -41,8 +39,8 @@ public class CoqLabelProvider implements ILabelProvider{
 	public String getText(Object element) {
 		// TODO Auto-generated method stub
 		//System.out.println(element.getClass().toString());
-		if (element instanceof CoqItem)
-			return ((CoqItem) element).name;
+		if (element instanceof OutlineItem)
+			return ((OutlineItem) element).name;
 		else return "undefined";	
 	}
 

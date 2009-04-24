@@ -1,4 +1,4 @@
-package coq.definitions;
+package coq.document;
 
 import java.util.LinkedList;
 
@@ -7,11 +7,11 @@ import org.eclipse.jface.text.FindReplaceDocumentAdapter;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IRegion;
 
-public class CoqFindCommandAdapter {
+public class FindCommandAdapter {
 	
 	IDocument document;
 	
-	public CoqFindCommandAdapter(IDocument document){
+	public FindCommandAdapter(IDocument document){
 		this.document=document;
 	}
 	

@@ -2,8 +2,6 @@ package coq.toplevel.toplevel;
 
 import java.util.LinkedList;
 
-import coq.definitions.CoqException;
-import coq.definitions.CoqOutput;
 import coq.definitions.ExtendedCoqState;
 
 public class AbstractCoqTop {
@@ -28,12 +26,8 @@ public class AbstractCoqTop {
 		coqtop = new CoqTop(folder);
 		history = new LinkedList<ExtendedCoqState>();
 		CoqOutput output;
-		try {
 			output = coqtop.start();
 			recordCoqState(new ExtendedCoqState(0,output.state));
-		} catch (CoqException e) {
-				e.printStackTrace();
-		}
 	}
 	
 	public int getCoqOffset(){
